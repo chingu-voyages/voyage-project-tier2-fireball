@@ -1,4 +1,4 @@
-# voyage-project-tier1-fireball
+# voyage-project-tier2-fireball
 
 ## Table of Contents
 
@@ -55,11 +55,16 @@ implement to enhance this app, if time permits.
 
 - [ ] This is a purely frontend application. No backend is required. 
 - [ ] You may use any languages, tools, or libraries you prefer when designing and building this app. 
-- [ ] We've included a CSV file containing the raw data in the `/assets` directory in this repo. But, if you choose, you may use the [Public API](https://data.nasa.gov/resource/gh4g-9sfh.json) instead.
+- [ ] You should use the [Public API](https://data.nasa.gov/resource/gh4g-9sfh.json) to retrieve meteorite strike data.
 - [ ] You may **_NOT_** use AI-base solution generators like GitHub CoPilot.
 - [ ] Useful links and resources:
     - [Meteorite Landings and Near Earth Objects](https://rpubs.com/ag1712/1059267)
     - [Public API](https://data.nasa.gov/resource/gh4g-9sfh.json)
+    - [Charts.js](https://www.chartjs.org/)
+    - [D3](https://d3js.org/)
+    - [Nivo](https://nivo.rocks/)
+    - [Geoapify](https://www.geoapify.com/reverse-geocoding-api)
+    - [Radar](https://radar.com/documentation/maps/geocoding)
 
 #### Styling
 
@@ -69,6 +74,8 @@ implement to enhance this app, if time permits.
 - [ ] Recommend using this resource for [clean CSS](https://www.devbridge.com/articles/implementing-clean-css-bem-method/)
 
 #### Functionality
+
+-   Your application should be performant. Even though you are working with a data set of over 45K rows users should not detect any noticable lag in response time, regardless of how many rows of data obtained by their searches. 
 
 -   User can see a landing page containing at least the following components:
     - [ ] Search fields allowing them to customize the detail data display
@@ -87,19 +94,23 @@ implement to enhance this app, if time permits.
 - Detail Data Display Component
     - [ ] Displays one row for each meteorite strike in the data set.
     - [ ] If no search criteria has been selected then the summary metrics will be for all meteorite strikes.
+    - [ ] Include a dynamically calculated column that converts the longitude and latitude of the meteorite strike into a location name using **_any_** reverse geolocation API.
 
 - Summary Metrics Component
-    - [ ] Displays the following metrics for the data that has been selected:
+    - [ ] Displays the following metrics for the data that has been selected, plus any additional data items you decide to search for:
         - Total number of strikes
         - Average mass
-        - Histogram showing number of strikes by year
-        - Histogram showing number of strikes by meteorite composition (`recclass`).
+        - Number of strikes by year
+        - Number of strikes by meteorite composition (`recclass`).
+    - [ ] You must display each data metric graphically using the chart type of your choice.
+    - [ ] You may use **_any_** library of graphical components you wish (like Nivo, D3, etc.), or you may create graphics logic yourself.
     - [ ] If no search criteria has been selected then the summary metrics will be for all meteorite strikes.
     
 ### Extras (Not Required)
 
 -   Search Component
     - [ ] Allow search criteria to be saved across sessions and reselected from a dropdown
+    - [ ] Implement an autocomplete option to display matching entries as the user types into search criteria text fields
 -   Detail Data Display Component
     - [ ] Display a clickable button in the column heading to allow the user to sort in ascending or descending sequence based on that column.
     - [ ] Display a clickable button in the column heading to display a popup dialog with a definition of what data is contained in the column.
@@ -109,6 +120,7 @@ implement to enhance this app, if time permits.
        - Average mass
        - Histogram showing number of strikes by year
        - Histogram showing number of strikes by meteorite composition (`recclass`). 
+    - [ ] If your team includes a Data Scientist get ideas from them on how to create inferences and predictions from this dataset. For example, what's the probability of a meteorite striking a specific country? Or, what's the probability of a meteorite strike at my location (based on Geolocation API)?
 -   General
     - [ ] Support dark/light mode
     - [ ] Allow the user options for customizing the font and font size
